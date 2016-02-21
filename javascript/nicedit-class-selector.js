@@ -111,5 +111,5 @@
 			editors.registerPlugin(nicPlugin,classSelectorOptions);
 		}
 	})
-	
+
 })(jQuery);

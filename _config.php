@@ -8,7 +8,7 @@ Director::addRules(100, array(
 	FRONTEND_EDIT_PREFIX.'//$Action' => 'FrontendEditing_Controller',
 	LOCKABLE_PREFIX.'//$Action//$ID' => 'LockableController',
 	TREE_PREFIX.'//$Action//$ID' => 'SimpleTreeController',
-	
+
 ));
 
 if (($FRONTEND_EDITING_MODULE = basename(dirname(__FILE__))) != 'frontend-editing') {

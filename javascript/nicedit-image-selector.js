@@ -65,7 +65,7 @@
 					$('.cancelButton').click(function () {
 						$this.removePane();
 					})
-					
+
 					this.pane.pane.setStyle({width: '520px'});
 
 					var treeContainer = $('<div id="imageSelectorTree"></div>').appendTo(treeDiv);
@@ -196,5 +196,5 @@
 			});
 		}
 	});
-	
+
 })(jQuery);

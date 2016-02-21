@@ -53,11 +53,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<h1 class="title">Hotkeys demo</h1>
 	<p>Try pressing up/down/left/right/del. The buttons below enable/disable the hotkeys (useful if you have another component on the page that may use keyboard navigation). You can attach the enable command to the onfocus event if you will - that way if the user clicks anywhere inside the tree container shortcuts will start working.</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$("#demo_1").tree({
 			// select a node initially so that you can start pounding up/down/left/right right away :)
 			selected : "phtml_1",
-			plugins : { 
+			plugins : {
 				hotkeys : {
 					functions : {
 						// lets add our own

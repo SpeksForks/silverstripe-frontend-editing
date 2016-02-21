@@ -53,7 +53,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<h1 class="title">Callbacks demo</h1>
 	<p>Please read the <a href="../documentation.html#callback">documentation on callbacks</a> to see all the available callbacks and what parameters you get with each one.</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$.tree.drag_start = function () {
 			$("#log").append("<br />Drag start ");
 		};
@@ -65,10 +65,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		};
 		$("#demo_1").tree({
 			callback : {
-				onload : function () { 
-					$("#log").append("Loaded<br />"); 
+				onload : function () {
+					$("#log").append("Loaded<br />");
 				},
-				onchange : function () { 
+				onchange : function () {
 					$("#log").append("Focus changed<br />");
 				}
 			}

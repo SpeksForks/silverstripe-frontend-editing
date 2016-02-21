@@ -32,15 +32,15 @@ SiteTree:
 
 ```
 
-In the templates for the page types you would like editable, add the 
-following in place of raw output fields - for example, instead of `$Content`, 
+In the templates for the page types you would like editable, add the
+following in place of raw output fields - for example, instead of `$Content`,
 use
 
 ````
 $EditableField(Content)
 ````
 
-As well as single fields of the current page, you can use it on 
+As well as single fields of the current page, you can use it on
 other objects contained in a control block (so long as those
 objects have the EditableExtension)
 
@@ -64,7 +64,7 @@ your own mechanism for launching the editor, but this is simpler :)
 **NOTE** after adding the above, when navigating to a page in 'Live' mode,
 if you have edit access to the page, hovering your mouse over the bottom
 right corner of the screen will display controls for launching the edit
-mode. In "Stage" view, these controls should appear immediately. 
+mode. In "Stage" view, these controls should appear immediately.
 
 ## API
 
@@ -72,10 +72,10 @@ mode. In "Stage" view, these controls should appear immediately.
 
 
 @TODO - for now, see nicedit-image-selector.js or nicedit-url-selector.js as
-examples. 
+examples.
 
 ## Troubleshooting
 
-* Appending `?stage=Stage&startEditing=true` to the current URL will 
+* Appending `?stage=Stage&startEditing=true` to the current URL will
   open the editor immediately; if this does _not_ happen, check your JS error
   console!

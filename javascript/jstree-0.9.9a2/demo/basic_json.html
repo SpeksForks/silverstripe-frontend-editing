@@ -53,15 +53,15 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<h1 class="title">Basic JSON demo</h1>
 	<p>The built in JSON datastore lets you define some static data to use to build the tree. Those two examples show a few basics of the <a href="../documentation.html#json">JSON datastore format</a>.</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$("#basic_json_1").tree({
-			data : { 
+			data : {
 				type : "json",
 				opts : {
 					static : [
-						{ 
+						{
 							// the short format demo
-							data : "A node", 
+							data : "A node",
 							// here are the children
 							children : [
 								{ data : "Child node 1" },
@@ -69,13 +69,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 								{ data : "Child node 3" }
 							]
 						},
-						{ 
-							attributes : { "id" : "li.node.id" }, 
+						{
+							attributes : { "id" : "li.node.id" },
 							// this is the long data format
-							data : { 
-								title : "Long format demo", 
-								attributes : { "href" : "http://jstree.com" } 
-							} 
+							data : {
+								title : "Long format demo",
+								attributes : { "href" : "http://jstree.com" }
+							}
 						}
 					]
 				}
@@ -87,17 +87,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 	<p style="clear:both; padding-top:1.385em;">You can also force a node in a closed or open state (notice in the previous example, that the node having children is intially closed).</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$("#basic_json_2").tree({
-			data : { 
+			data : {
 				type : "json",
 				opts : {
 					static : [
-						{ data : "A node", children : [ { data : "Only child" } ], 
+						{ data : "A node", children : [ { data : "Only child" } ],
 							// this node will initially be open
-							state : "open" 
+							state : "open"
 						},
-						{ data : "Some other node", 
+						{ data : "Some other node",
 							// this node will appear closed even though it has no children
 							state : "closed"
 						}

@@ -8,7 +8,7 @@
 class PageCreatorPage extends Page
 {
 	public static $additional_types = array();
-	
+
     public static $db = array(
 		'CreateType' => 'Varchar(32)',
 	);
@@ -26,7 +26,7 @@ class PageCreatorPage extends Page
 		$fields = parent::getCMSFields();
 
 		$types = ClassInfo::implementorsOf('FrontendCreatable');
-		
+
 		if (!$types) {
 			$types = array();
 		}
@@ -72,7 +72,7 @@ class PageCreatorPage_Controller extends Page_Controller
 				new LiteralField('InvalidType', 'Page is incorrectly configured')
 			);
 		}
-		
+
 		$actions = new FieldSet(
 			new FormAction('createpage', _t('PageCreateorPage.CREATE_PAGE', 'Create'))
 		);
@@ -83,7 +83,7 @@ class PageCreatorPage_Controller extends Page_Controller
 
 	/**
 	 *
-	 * Action called by the form to actually create a new page object. 
+	 * Action called by the form to actually create a new page object.
 	 *
 	 * @param SS_HttpRequest $request
 	 * @param Form $form

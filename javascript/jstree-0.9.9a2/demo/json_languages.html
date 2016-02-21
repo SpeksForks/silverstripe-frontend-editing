@@ -55,14 +55,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 	<p>Here is the demo of the long and short JSON format for multilanguage trees. You need to set the <a href="../documentation.html#languages">languages</a> option. In the buttons code, you can see how to get an instance - either by using <a href="../documentation.html#tree.reference">reference</a> and <a href="../documentation.html#tree.focused">focused</a>.</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$("#l_json").tree({
 			languages : [ "en", "bg" ],
-			data : { 
+			data : {
 				type : "json",
 				opts : {
 					static : [
-						{ 
+						{
 							// the short format demo
 							data : { "en" : "A node", "bg" : "Нодче" },
 							// here are the children
@@ -71,19 +71,19 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 								{ data : { "en" : "Child node 2", "bg" : "Дете 2" } }
 							]
 						},
-						{ 
-							attributes : { "id" : "li.node.id" }, 
+						{
+							attributes : { "id" : "li.node.id" },
 							// this is the long data format
-							data : { 
+							data : {
 								bg : {
-									title : "удри баце", 
-									attributes : { "href" : "http://jstree.com" } 
+									title : "удри баце",
+									attributes : { "href" : "http://jstree.com" }
 								},
 								en : {
-									title : "Long format demo", 
-									attributes : { "href" : "http://jstree.com" } 
+									title : "Long format demo",
+									attributes : { "href" : "http://jstree.com" }
 								}
-							} 
+							}
 						}
 					]
 				}

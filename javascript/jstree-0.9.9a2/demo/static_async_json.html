@@ -59,9 +59,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		{ attributes : { "id" : "node_2" }, data : "Node 2", state : "closed"},
 		{ attributes : { "id" : "node_3" }, data : "Node 3" }
 	];
-	$(function () { 
+	$(function () {
 		$("#sa_json_1").tree({
-			data : { 
+			data : {
 				type : "json",
 				async : true,
 				opts : {
@@ -70,14 +70,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 					url : "async_json_data.json"
 				}
 			},
-			callback : { 
+			callback : {
 				// Make sure static is not used once the tree has loaded for the first time
-				onload : function (t) { 
-					t.settings.data.opts.static = false; 
+				onload : function (t) {
+					t.settings.data.opts.static = false;
 				},
 				// Take care of refresh calls - n will be false only when the whole tree is refreshed or loaded of the first time
-				beforedata : function (n, t) { 
-					if(n == false) t.settings.data.opts.static = stat; 
+				beforedata : function (n, t) {
+					if(n == false) t.settings.data.opts.static = stat;
 				}
 			}
 		});

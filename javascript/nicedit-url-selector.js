@@ -1,6 +1,6 @@
 
 (function ($) {
-	
+
 	var ssauUrlTree = null;
 
 	SSFrontendEditor.Instance.registerPlugin({

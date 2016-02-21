@@ -1,4 +1,4 @@
-<?php 
+<?php
 class TestAnother extends SapphireTest
 {
 	function testSomething() {

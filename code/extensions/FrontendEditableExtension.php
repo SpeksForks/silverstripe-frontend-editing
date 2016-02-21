@@ -21,7 +21,7 @@ class FrontendEditableExtension extends DataExtension {
 	}
 
 	/**
-	 * Each page that is editable should have an "Owner" 
+	 * Each page that is editable should have an "Owner"
 	 *
 	 * @param FieldSet $fields
 	 */
@@ -118,7 +118,7 @@ class FrontendEditableExtension extends DataExtension {
 			$ID = $this->owner->ID;
 			$typeInfo = $this->owner->ClassName . '-' . $ID;
 			// now add the wrapped field
-			return '<' . $tagType . ' data-security-id="' . SecurityToken::inst()->getSecurityID() . '" class="__wysiwyg-editable" id="' . $typeInfo . '|' . $ID . '|' . $fieldName . '">' . 
+			return '<' . $tagType . ' data-security-id="' . SecurityToken::inst()->getSecurityID() . '" class="__wysiwyg-editable" id="' . $typeInfo . '|' . $ID . '|' . $fieldName . '">' .
 				$this->owner->XML_val($fieldName) . '</' . $tagType . '>';
 		} else {
 			return $this->owner->XML_val($fieldName);

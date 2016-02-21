@@ -53,9 +53,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<h1 class="title">Async JSON demo</h1>
 	<p>Same as with the HTML datastore you can load data from a file.</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$("#async_json_1").tree({
-			data : { 
+			data : {
 				type : "json",
 				opts : {
 					url : "async_json_data.json"
@@ -68,9 +68,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 	<p style="clear:both; padding-top:1.385em;">But you can also use the <code>async</code> option. If you want to modify the data sent to the server with each request take a look at the <a href="../documentation.html#callback.beforedata">beforedata callback</a>.</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$("#async_json_2").tree({
-			data : { 
+			data : {
 				type : "json",
 				async : true,
 				opts : {

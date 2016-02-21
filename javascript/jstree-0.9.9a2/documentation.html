@@ -28,7 +28,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	.arguments li p { padding:0; }
 	.indent { margin-left:50px; }
 
-	@media print { 
+	@media print {
 		#container { width:auto; margin:0 1em; }
 		h1, h2, h3 { page-break-after:avoid; }
 	}
@@ -282,7 +282,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			<em><code class="type">Object</code></em>
 		</h2>
 		<p class="description">This section is for defining a few rules for the whole tree.</p>
-		
+
 		<div class="indent">
 			<h2 id="rules.multiple">
 				<span>rules.multiple</span>
@@ -551,7 +551,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			<p class="description">Triggered when a node is doubleclicked. Receives two parameters - the node that was doubleclicked and a reference to the tree instance.</p>
 			<p class="description">Default is:</p>
 <pre class="fp">
-function(NODE, TREE_OBJ) { 
+function(NODE, TREE_OBJ) {
 	TREE_OBJ.toggle_branch.call(TREE_OBJ, NODE);
 	TREE_OBJ.select_branch.call(TREE_OBJ, NODE);
 }
@@ -562,10 +562,10 @@ function(NODE, TREE_OBJ) {
 			</h2>
 			<p class="description">Triggered when a node is rightclicked. Receives three parameters - the node that was rightclicked, a reference to the tree instance and the event object. To prevent the browser menu use:</p>
 <pre class="fp">
-function(NODE, TREE_OBJ, EV) { 
-	EV.preventDefault(); 
-	EV.stopPropagation(); 
-	return false; 
+function(NODE, TREE_OBJ, EV) {
+	EV.preventDefault();
+	EV.stopPropagation();
+	return false;
 }</pre>
 			<p class="description">Default is: <code class="fp">function(NODE, TREE_OBJ, EV) { }</code></p>
 
@@ -663,9 +663,9 @@ plugins : {
 			<h2 id="json">JSON</h2>
 			<p>The JSON data format is definitely the most widely used amongst jsTree users. Each node has the following structure:</p>
 <pre class="fp">
-{ 
-	attributes: { id : "node_identificator", some-other-attribute : "attribute_value" }, 
-	data: "node_title", 
+{
+	attributes: { id : "node_identificator", some-other-attribute : "attribute_value" },
+	data: "node_title",
 	<code class="type">// Properties below are only used for NON-leaf nodes</code>
 	state: "closed", <code class="type">// or "open"</code>
 	children: [ <code class="type">/* an array of child nodes objects */</code> ]
@@ -674,8 +674,8 @@ plugins : {
 			<p>As you can see you can pass any attributes you like in the <code class="fp">attributes</code> object - in the resulting HTML output those attributes are bound to the <code class="fp">&lt;li&gt;</code> element. If you have a leaf node (one with no children) omit the <code class="fp">state</code> and <code class="fp">children</code> properties.</p>
 			<p>If you need to specify some attributes for the <code class="fp">&lt;a&gt;</code> node in the output, or want to set a custom icon instead of a string, pass an object for the data section. Like so:</p>
 <pre class="fp" style="color:silver;">
-{ 
-	attributes: { id : "node_identificator", some-other-attribute : "attribute_value" }, 
+{
+	attributes: { id : "node_identificator", some-other-attribute : "attribute_value" },
 	<code class="fp">data: { title : "Node title", icon : "path_to/icon.pic", attributes : {"key" : "value" } }, </code>
 	// Properties below are only used for NON-leaf nodes
 	state: "closed", // or "open"
@@ -685,14 +685,14 @@ plugins : {
 
 			<p>If language versions are used use this syntax for the data property:</p>
 <pre class="fp">
-data: { 
-	"en" : "Title in English", 
+data: {
+	"en" : "Title in English",
 	"bg" : "Title in Bulgarian"
 }
 </pre>
 			<p>Or if you need icons and attributes:</p>
 <pre class="fp">
-data: { 
+data: {
 	"en" : { title : "Title in English", icon : "path_to/icon.pic", attributes : { "key" : "value" } },
 	"bg" : "Title in Bulgarian"
 }
@@ -714,11 +714,11 @@ data: {
 			</p>
 			<p class="inner_description">An optional object, specifing all the options for the tree (or trees) that will be created. This object internally extends the global defaults object. So you may only pass values that are different from the defaults.</p>
 		</div>
-		
+
 		<h3>Functions and properties bound directly to the global tree object.</h3>
 		<h2 id="tree.create">
 			<span>jQuery.tree.create()</span>
-			<em>Return value: <code class="type">jsTree</code></em> 
+			<em>Return value: <code class="type">jsTree</code></em>
 		</h2>
 		<p class="description">Creates a new tree instance. Accepts no arguments - the configuration object is passed in a subsequest <code class="fp">init</code> call on the returned tree object.</p>
 
@@ -726,7 +726,7 @@ data: {
 			<span>jQuery.tree.datastores</span>
 		</h2>
 		<p class="description">This object stores all defined datastores on a global level. Every added datastore extends this object. In order to use a datastore in a tree instance, the datastore should be defined in this object.</p>
-		
+
 		<h2 id="tree.defaults">
 			<span>jQuery.tree.defaults</span>
 		</h2>
@@ -757,7 +757,7 @@ data: {
 		<p class="description">This function sets all initialized trees on the page in "drop mode", meaning that all the trees start handling mouseover events and evaluating the possible drop, and giving the user feedback.</p>
 		<div class="arguments">
 			<p>
-				<strong>Arguments:</strong> 
+				<strong>Arguments:</strong>
 				<code class="type">object</code> <code class="fp">options</code>
 			</p>
 			<p>An optional object, specifing a few options:</p>
@@ -836,7 +836,7 @@ data: {
 		</h2>
 		<p class="description">Checks if a certain action is allowed on a node (for example create, delete, rename, etc) and returns <code class="fp">true</code> or <code class="fp">false</code> accordingly. Used mainly internally.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">string</code> <code class="fp">rule</code></p>
 			<p>The rule you want to check.</p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
@@ -849,7 +849,7 @@ data: {
 		</h2>
 		<p class="description">Checks if a certain move is allowed. Used mainly internally.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to the node that is being moved.</p>
 			<p><code class="type">mixed</code> <code class="fp">ref_node</code></p>
@@ -864,7 +864,7 @@ data: {
 		</h2>
 		<p class="description">Get the child nodes of the reference node. Returns <code class="fp">false</code> on failure.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">reference_node</code></p>
 			<p>The reference node. A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 		</div>
@@ -873,7 +873,7 @@ data: {
 			<span>close_all([node])</span>
 		</h2>
 		<p class="description">Closes all nodes, so that their children are not visible. Has no return value, but returns <code class="fp">false</code> on failure (invalid node for example).</p>
-		<div class="arguments"><p><strong>Arguments:</strong></p> 
+		<div class="arguments"><p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>Optional argument. A DOM node, jQuery object or selector, pointing to a node inside the tree. If passed only this node and its children are closed, if not passed - every node in the tree is closed.</p>
 		</div>
@@ -883,7 +883,7 @@ data: {
 		</h2>
 		<p class="description">Close a node, so that its children are not visible. Has no return value, but returns <code class="fp">false</code> on failure (invalid node for example).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 			<p><code class="type">boolean</code> <code class="fp">disable_animation</code></p>
@@ -900,7 +900,7 @@ data: {
 		</h2>
 		<p class="description">Marks a node as copied. A paste operation following the copy operation will create a copy of that node. Has no return value, but returns <code class="fp">false</code> on failure (invalid node for example).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>Optional argument - the node to be copied. A DOM node, jQuery object or selector, pointing to a node inside the tree. If omitted the currently selected node (or nodes) are marked.</p>
 		</div>
@@ -911,7 +911,7 @@ data: {
 		</h2>
 		<p class="description">Create a new node. Please note this function should mainly be used for user interaction and not for populating the tree initially. Returns the newly created node or <code class="fp">false</code> on failure.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">object</code> <code class="fp">data</code></p>
 			<p>Optional argument. The object follows the built in JSON structure, so you can specify name (or names if using language versions) for the newly created node, attributes, type of the node, open/closed state, etc. If omitted the new node's type is "default" and as soon as it is inserted the <code class="fp">rename</code> function is called on the node.</p>
 			<p><code class="type">mixed</code> <code class="fp">reference_node</code></p>
@@ -930,7 +930,7 @@ data: {
 		</h2>
 		<p class="description">Marks a node as cut. A paste operation following the cut operation will move that node. Has no return value, but returns <code class="fp">false</code> on failure (invalid node for example).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code>
 			<p>Optional argument - the node to be cut. A DOM node, jQuery object or selector, pointing to a node inside the tree. If omitted the currently selected node (or nodes) are marked.</p>
 		</div>
@@ -940,7 +940,7 @@ data: {
 		</h2>
 		<p class="description">Removes the selected state from a node in the tree. Has no return value, but returns <code class="fp">false</code> on failure (invalid node for example).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 		</div>
@@ -956,7 +956,7 @@ data: {
 		</h2>
 		<p class="description">All errors go through this function. Used internally.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">string</code> <code class="fp">error_string</code></p>
 		</div>
 
@@ -971,7 +971,7 @@ data: {
 		</h2>
 		<p class="description">Return the whole tree or a part of it in a given format.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree. This is the node you want returned, if this argument omitted the whole tree is returned.</p>
 			<p><code class="type">string</code> <code class="fp">format</code></p>
@@ -992,7 +992,7 @@ data: {
 		</h2>
 		<p class="description">This function returns the jQuery extended LI DOM node that represents a given tree node.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 		</div>
@@ -1009,7 +1009,7 @@ data: {
 		</h2>
 		<p class="description">This function returns the title of the node passed as first parameter.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 			<p><code class="type">string</code> <code class="fp">language</code></p>
@@ -1022,7 +1022,7 @@ data: {
 		</h2>
 		<p class="description">This function returns the type of a node (types are used to determine nesting/interaction rules). The function returns <code class="fp">"default"</code> if no type attribute is found.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 		</div>
@@ -1032,7 +1032,7 @@ data: {
 		</h2>
 		<p class="description">Sets a node in the tree as hovered. Has no return value, but returns <code class="fp">false</code> on failure (invalid node for example).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 		</div>
@@ -1042,7 +1042,7 @@ data: {
 		</h2>
 		<p class="description">This function initializes a tree in the given container element, using the optional config passed as a parameter. Usually used after <code class="fp">create()</code>.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">element</code></p>
 			<p>This is a DOM node, jQuery object, or a valid jQuery selector, pointing to a container element. This parameter is required.</p>
 			<p><code class="type">object</code> <code class="fp">config</code></p>
@@ -1054,7 +1054,7 @@ data: {
 		</h2>
 		<p class="description">Locks or unlocks the tree instance. A locked tree blocks all user interactions.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">boolean</code> <code class="fp">state</code></p>
 			<p>To lock or unlock (<code class="fp">true</code> means lock).</p>
 		</div>
@@ -1070,7 +1070,7 @@ data: {
 		</h2>
 		<p class="description">This function is used internally. It performs all moves and manipulates the DOM. Returns the moved node, but there is no return value if there are multiple moves to be performed or the required data is not yet loaded.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">what</code></p>
 			<p>The node (or nodes) to move/copy/create. A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 			<p><code class="type">mixed</code> <code class="fp">where</code></p>
@@ -1091,7 +1091,7 @@ data: {
 		</h2>
 		<p class="description">Get the node next to the reference node. Returns <code class="fp">false</code> on failure.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code><code class="fp">reference_node</code></p>
 			<p>The reference node. A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 			<p><code class="type">boolean</code><code class="fp">strict</code></p>
@@ -1108,7 +1108,7 @@ data: {
 		</h2>
 		<p class="description">Open all nodes, so that their children are visible. Returns <code class="fp">false</code> on failure.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>Optional argument. A DOM node, jQuery object or selector, pointing to a node inside the tree. If passed only this node and its children are opened, if not passed - every node in the tree is opened.</p>
 			<p><code class="type">function</code> <code class="fp">callback</code></p>
@@ -1120,7 +1120,7 @@ data: {
 			<em>Return value: <code class="type">boolean</code></em>
 		</h2>
 		<p class="description">Open a node, so that its children are visible. Returns <code class="fp">true</code> if succesfull, <code class="fp">false</code> if not.</p>
-		<div class="arguments"><p><strong>Arguments:</strong></p> 
+		<div class="arguments"><p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 			<p><code class="type">boolean</code> <code class="fp">disable_animation</code></p>
@@ -1135,7 +1135,7 @@ data: {
 		</h2>
 		<p class="description">Get the parent node of the reference node. Normally returns a <code class="type">jQuery</code> extended node, but will return <code class="fp">-1</code> if a root node is passed as reference node, or <code class="fp">false</code> on failure (invalid reference node for exmaple).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">reference_node</code></p>
 			<p>The reference node. A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 		</div>
@@ -1145,7 +1145,7 @@ data: {
 		</h2>
 		<p class="description">Pastes any copied or cut nodes in the new position. Has no return value, but will return <code class="fp">false</code> on failure.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>Optional argument - the reference node in the operation. A DOM node, jQuery object or selector, pointing to a node inside the tree. If omitted the currently selected node (or nodes) are marked.</p>
 			<p><code class="type">mixed</code> <code class="fp">position</code></p>
@@ -1158,7 +1158,7 @@ data: {
 		</h2>
 		<p class="description">Get the node previous to the reference node. Returns <code class="fp">false</code> on failure.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">reference_node</code></p>
 			<p>The reference node. A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 			<p><code class="type">boolean</code> <code class="fp">strict</code></p>
@@ -1170,7 +1170,7 @@ data: {
 		</h2>
 		<p class="description">This function refreshes the whole tree, or a given node (if passed as a parameter). Opened nodes and selected nodes are saved and reopened/reselected (the <code class="fp">reselect</code> function is used for reselecting and reopening).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">element</code></p>
 			<p>This is a DOM node, jQuery object, or a valid jQuery selector, pointing to a node in the tree. If this parameter is passed, only that node is refreshed, if this parameter is absent, the whole tree is refreshed.</p>
 		</div>
@@ -1180,7 +1180,7 @@ data: {
 		</h2>
 		<p class="description">Removes a node. Has no return value, but will return <code class="fp">false</code> on failure.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>Optional argument - the node to be removed. A DOM node, jQuery object or selector, pointing to a node inside the tree. If omitted the currently selected node is removed.</p>
 		</div>
@@ -1190,7 +1190,7 @@ data: {
 		</h2>
 		<p class="description">Rename a node. If language versions are used only the title in the currently visible language is modified. Has no return value, but will return <code class="fp">false</code> on failure.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>Optional argument - the node to be renamed. A DOM node, jQuery object or selector, pointing to a node inside the tree. If omitted the currently selected node is renamed.</p>
 			<p><code class="type">string</code> <code class="fp">new_name</code></p>
@@ -1202,7 +1202,7 @@ data: {
 		</h2>
 		<p class="description">This function reselects and reopens nodes in the tree after a refresh. It is used internally.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">boolean</code> <code class="fp">is_callback</code></p>
 			<p>As the function sometimes calls recursively this parameter shows if this is a recursive call, or the first one.</p>
 		</div>
@@ -1224,7 +1224,7 @@ data: {
 		</h2>
 		<p class="description">This function scrolls the container node so that the node passed as parameter is in view. If the parameter is missing the currently selected node is used.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 		</div>
@@ -1234,7 +1234,7 @@ data: {
 		</h2>
 		<p class="description">Searches all nodes whose titles match a given string. If async is used a request is made to the server, the response should contain the comma-separated IDs of nodes that need to be opened so that all nodes that match the search string are visible. The search string is provided in the request. The function triggers the <code class="fp">onsearch</code> callback, with the nodes found as a parameter.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">string</code> <code class="fp">needle</code></p>
 			<p>The search string.</p>
 			<p><code class="type">string</code> <code class="fp">compare_function</code></p>
@@ -1256,7 +1256,7 @@ data: {
 		</h2>
 		<p class="description">Sets a node in the tree as selected. Has no return value but will return <code class="fp">false</code> on failure (invalid node for example).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 			<p><code class="type">boolean</code> <code class="fp">is_multiple</code></p>
@@ -1274,7 +1274,7 @@ data: {
 		</h2>
 		<p class="description">This function is only useful if language versions are used. Sets the current language to the specified one so that the tree is visible in that language. Returns <code class="fp">true</code> on success and <code class="fp">false</code> otherwise.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">lang</code></p>
 			<p>Either one of the language strings defined in the tree's config, or its key in the array.</p>
 		</div>
@@ -1284,7 +1284,7 @@ data: {
 		</h2>
 		<p class="description">This function sets the type of a node to a given value (types are used to determine nesting/interaction rules).</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">string</code> <code class="fp">type</code></p>
 			<p>The new type of the node.</p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
@@ -1297,7 +1297,7 @@ data: {
 		</h2>
 		<p class="description">Toggles the opened/closed state of the node. Returns <code class="fp">true</code> on success and <code class="fp">false</code> otherwise.</p>
 		<div class="arguments">
-			<p><strong>Arguments:</strong></p> 
+			<p><strong>Arguments:</strong></p>
 			<p><code class="type">mixed</code> <code class="fp">node</code></p>
 			<p>A DOM node, jQuery object or selector, pointing to a node inside the tree.</p>
 		</div>

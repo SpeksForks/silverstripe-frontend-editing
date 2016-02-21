@@ -7,7 +7,7 @@
 <% end_if %>
 
 <div id="FrontendEditingControls" data-islive="<% if LiveSite %>true<% end_if %>">
-	
+
 	<% if FrontendEditAllowed(0)  %>
 		<% if LiveSite %>
 		<input type="button" value="<% _t('FrontendEdit.EDIT_DRAFT_PAGE','Edit Draft Page') %>" id="FE_EditDraft"  />
@@ -18,6 +18,6 @@
 
 	<input type="button" value="<% _t('FrontendEdit.START_EDITING','Open Editor') %>" id="FE_SwitchOn"/>
 	<input type="button" value="<% _t('FrontendEdit.STOP_EDITING','Close Editor') %>" id="FE_SwitchOff"/>
-	
+
 </div>
 <% end_if %>

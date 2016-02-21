@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Apply this extension to a page type to allow it to be 'locked'. 
+ * Apply this extension to a page type to allow it to be 'locked'.
  *
  * @author Marcus Nyeholt <marcus@silverstripe.com.au>
  */
@@ -16,14 +16,14 @@ class FrontendLockable extends DataExtension {
 	public static $lock_time = 120;
 	public static $db = array(
 		'LockExpiry' => 'SS_Datetime',
-		'LastEditor' => 'Varchar(64)', // different from the 'modifiedby'? 
+		'LastEditor' => 'Varchar(64)', // different from the 'modifiedby'?
 	);
 
 	public function updateCMSFields(FieldList $fields) {
 		$fields->addFieldToTab('Root.Locking', new TextField('LastEditor', _t('EditablePage.LOCKEDBY', 'Last locked by'), '', 20));
 		$fields->addFieldToTab('Root.Locking', new TextField('LockExpiry', _t('EditablePage.LOCK_EXPIRY', 'Lock will expire by'), '', 20));
 	}
-	
+
 	public function getLockTime() {
 		return (self::$lock_time - 10);
 	}
@@ -114,7 +114,7 @@ JSCRIPT;
 		);
 
 		$user = Member::currentUser();
-		$currentLock = Page::get()->filter($filter)->first(); 
+		$currentLock = Page::get()->filter($filter)->first();
 
 		$lock = null;
 
@@ -142,7 +142,7 @@ JSCRIPT;
 	 *
 	 * If the second parameter is true, then it means we're being explicit in that the user must
 	 * have previously taken the locks before this method was called, and will not try to take
-	 * locks automatically. 
+	 * locks automatically.
 	 *
 	 * @param Member $member
 	 * 			The member to check lock holding for

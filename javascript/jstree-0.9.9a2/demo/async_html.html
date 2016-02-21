@@ -53,9 +53,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<h1 class="title">Async HTML demo</h1>
 	<p>This time all nodes are loaded from an external file. Notice that when you open the closed node nothing happens.</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$("#async_html_1").tree({
-			data : { 
+			data : {
 				opts : {
 					url : "async_html_data.txt"
 				}
@@ -67,9 +67,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 	<p style="clear:both; padding-top:1.385em;">By setting <code>async : true</code> we are telling jsTree to request its data from the server everytime a closed node is opened (unless of course it is already loaded). If you want to modify the data sent to the server with each request take a look at the <a href="../documentation.html#callback.beforedata">beforedata callback</a>.</p>
 	<script type="text/javascript" class="source">
-	$(function () { 
+	$(function () {
 		$("#async_html_2").tree({
-			data : { 
+			data : {
 				async : true,
 				opts : {
 					url : "async_html_data.txt"

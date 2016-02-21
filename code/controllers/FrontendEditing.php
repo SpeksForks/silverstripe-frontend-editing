@@ -4,7 +4,7 @@
  * The controller that handles editing submissions from the frontend.
  */
 class FrontendEditing_Controller extends Controller implements PermissionProvider {
-	
+
 	private static $allowed_actions = array(
 		'getcontent'	=> 'PERM_FRONTEND_EDIT',
 		'frontendCommit'	=> 'PERM_FRONTEND_PUBLISH',
@@ -23,7 +23,7 @@ class FrontendEditing_Controller extends Controller implements PermissionProvide
 	 *
 	 * FrontendEdit
 	 * FrontendPublish
-	 * 
+	 *
 	 */
 	public function providePermissions() {
 		return array(
@@ -95,18 +95,18 @@ class FrontendEditing_Controller extends Controller implements PermissionProvide
 
 		return Convert::raw2json($return);
 	}
-	
+
 	public function createpage() {
 		$relation = $this->request->postVar('relation');
 		$context = (int) $this->request->postVar('context');
 		$to = (int) $this->request->postVar('to');
-		
+
 		$type = $this->request->postVar('type');
-		
+
 		if (!$to) {
 			$to = 0;
 		}
-		
+
 		if ($relation && $to) {
 			$page = Page::get()->byID($to);
 			$to = $page ? $page->ParentID : 0;
@@ -116,7 +116,7 @@ class FrontendEditing_Controller extends Controller implements PermissionProvide
 			$type = 'Page';
 		}
 		$newSort = 0;
-		
+
 		$contextPage = Page::get()->byID($context);
 		if ($contextPage) {
 			$newSort = $contextPage->Sort + 1;
@@ -127,10 +127,10 @@ class FrontendEditing_Controller extends Controller implements PermissionProvide
 		$newPage->ParentID = $to;
 		$newPage->Sort = $newSort;
 		$newPage->write();
-		
+
 		return $newPage->ID;
 	}
-	
+
 	public function deletepage() {
 		$pageId = (int) $this->request->postVar('page');
 		if ($pageId) {
@@ -140,7 +140,7 @@ class FrontendEditing_Controller extends Controller implements PermissionProvide
 				$page->delete();
 			}
 		}
-		
+
 		return $pageId;
 	}
 
@@ -226,17 +226,17 @@ class FrontendEditing_Controller extends Controller implements PermissionProvide
 
 		return Convert::raw2json($return);
 	}
-	
+
 	public function batchcontent() {
 		$objects = $this->request->getVar('objects');
 		$format = $this->request->getVar('format');
-		
+
 		$return = new stdClass();
 		$return->success = 0;
 		$return->message = "Data not found";
 
 		$return->data = array();
-		
+
 		if (is_array($objects) && count($objects)) {
 			foreach ($objects as $itemKey) {
 				list($type, $id, $field) = explode('-', $itemKey);

@@ -28,7 +28,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	.arguments li p { padding:0; }
 	.indent { margin-left:50px; }
 
-	@media print { 
+	@media print {
 		#container { width:auto; margin:0 1em; }
 		h1, h2, h3 { page-break-after:avoid; }
 	}
@@ -152,46 +152,46 @@ plugins : {
 <pre class="fp">
 items : {
 	create : {
-		label	: "Create", 
+		label	: "Create",
 		icon	: "create",
-		visible	: function (NODE, TREE_OBJ) { 
-			if(NODE.length != 1) return 0; 
-			return TREE_OBJ.check("creatable", NODE); 
-		}, 
-		action	: function (NODE, TREE_OBJ) { 
-			TREE_OBJ.create(false, TREE_OBJ.get_node(NODE[0])); 
+		visible	: function (NODE, TREE_OBJ) {
+			if(NODE.length != 1) return 0;
+			return TREE_OBJ.check("creatable", NODE);
+		},
+		action	: function (NODE, TREE_OBJ) {
+			TREE_OBJ.create(false, TREE_OBJ.get_node(NODE[0]));
 		},
 		separator_after : true
 	},
 	rename : {
-		label	: "Rename", 
+		label	: "Rename",
 		icon	: "rename",
-		visible	: function (NODE, TREE_OBJ) { 
-			if(NODE.length != 1) return false; 
-			return TREE_OBJ.check("renameable", NODE); 
-		}, 
-		action	: function (NODE, TREE_OBJ) { 
-			TREE_OBJ.rename(NODE); 
-		} 
+		visible	: function (NODE, TREE_OBJ) {
+			if(NODE.length != 1) return false;
+			return TREE_OBJ.check("renameable", NODE);
+		},
+		action	: function (NODE, TREE_OBJ) {
+			TREE_OBJ.rename(NODE);
+		}
 	},
 	remove : {
 		label	: "Delete",
 		icon	: "remove",
-		visible	: function (NODE, TREE_OBJ) { 
-			var ok = true; 
-			$.each(NODE, function () { 
+		visible	: function (NODE, TREE_OBJ) {
+			var ok = true;
+			$.each(NODE, function () {
 				if(TREE_OBJ.check("deletable", this) == false) {
-					ok = false; 
-					return false; 
+					ok = false;
+					return false;
 				}
-			}); 
-			return ok; 
-		}, 
-		action	: function (NODE, TREE_OBJ) { 
-			$.each(NODE, function () { 
-				TREE_OBJ.remove(this); 
-			}); 
-		} 
+			});
+			return ok;
+		},
+		action	: function (NODE, TREE_OBJ) {
+			$.each(NODE, function () {
+				TREE_OBJ.remove(this);
+			});
+		}
 	}
 }
 </pre>
@@ -239,11 +239,11 @@ items : {
 		<p class="description">All the options used in the jQuery Cookie plugin.</p>
 		<p class="description">Default is:</p>
 <pre class="fp">
-options : { 
-	expires: false, 
-	path: false, 
-	domain: false, 
-	secure: false 
+options : {
+	expires: false,
+	path: false,
+	domain: false,
+	secure: false
 }
 </pre>
 		<h2 id="cookie.types">

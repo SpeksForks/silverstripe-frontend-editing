@@ -15,10 +15,10 @@ var SSFrontendEditor = {};
 
 		this.nicInstances = [];
 		this.plugins = [];
-		
+
 		this.cachedPageData = {escaped: {}, raw: {}};
-		
-		// we wait 500ms until other bits of code have run in jquery's ready(), so that 
+
+		// we wait 500ms until other bits of code have run in jquery's ready(), so that
 		// they can register plugins etc if they wish
 		setTimeout(function () {
 			SSFrontendEditor.Instance.init();
@@ -35,7 +35,7 @@ var SSFrontendEditor = {};
 			$('body').ajaxError(function (data) {
 				_this.message("Request failed: "+data);
 			});
-			
+
 			// find a security ID
 			this.securityId = $('[data-security-id]').attr('data-security-id');
 		},
@@ -61,7 +61,7 @@ var SSFrontendEditor = {};
 			dialogMask.css({'width':maskWidth,'height':maskHeight, opacity: '0.8'});
 			dialogMask.show();
 		},
-		
+
 		clearMask: function () {
 			$('#__editor-mask').hide();
 			this.statusDiv().hide();
@@ -176,7 +176,7 @@ var SSFrontendEditor = {};
 	       		"superscript":18,"ul":19,"underline":20,"image":21,"insertimage":21,"link":22,"unlink":23,
 	       		"close":24,"arrow":26,"insertlink": 22}
 
-			
+
 			for (var i = 0, c = this.plugins.length; i < c; i++) {
 				// first call its load method, passing the global nicEditors object to have plugins loaded into it
 				if (!this.pluginsLoaded) {
@@ -190,7 +190,7 @@ var SSFrontendEditor = {};
 	       	var $this = this;
 	       	this.pageEditor = new nicEditor({buttonList: buttons, iconList: icons, iconsPath: 'frontend-editing/javascript/nicEditorIcons.gif'});
 	       	this.pageEditor.setPanel('__editor-panel');
-			
+
 			var elementsToConvert = $('.'+$this.wysiwygElements);
 
 			$this.statusDiv().html('<p>Loading 0%</p>');
@@ -206,16 +206,16 @@ var SSFrontendEditor = {};
 					return false;
 				}
 			});
-			
+
 			var toLoad = [];
-			
+
 			elementsToConvert.each (function (i) {
 				var elemParams = $(this).attr("id").split("|");
 				var typeInfo = elemParams[0] + '-' + elemParams[2];
-				
+
 				toLoad.push(typeInfo);
 			});
-			
+
 			$.get('frontendedit/batchcontent', {objects: toLoad, format: 'raw'}).success(function (d) {
 				$this.cachedPageData.raw = d.data;
 
@@ -261,7 +261,7 @@ var SSFrontendEditor = {};
 		 */
 		unconvertEditableRegions: function () {
 			var $this = this;
-			
+
 			// remove all editor bits and pieces
 			var nicInstances = this.getEditorInstances();
 			for (var i = 0; i < nicInstances.length; i++) {
@@ -277,16 +277,16 @@ var SSFrontendEditor = {};
 
 			var numToConvert = elementsToConvert.length;
 			var numberConverted = 0;
-			
+
 			var toLoad = [];
-			
+
 			elementsToConvert.each (function (i) {
 				var elemParams = $(this).attr("id").split("|");
 				var typeInfo = elemParams[0] + '-' + elemParams[2];
-				
+
 				toLoad.push(typeInfo);
 			});
-			
+
 			$.get('frontendedit/batchcontent', {objects: toLoad, format: 'escaped'}).success(function (d) {
 				$this.cachedPageData.escaped = d.data;
 				elementsToConvert.each(function (index) {
@@ -326,14 +326,14 @@ var SSFrontendEditor = {};
 		updateFieldContents: function (element, typeInfo, format, successfulLoad, loadError) {
 			var $this = this;
 			var request = $this.options.contentUrl + '/' + typeInfo + '/' + format;
-			
+
 			if (this.cachedPageData[format]) {
 				$(element).removeClass('__editable_empty');
 				$(element).html(this.cachedPageData[format][typeInfo]);
 				if (!this.cachedPageData[format][typeInfo]) {
 					$(element).addClass('__editable_empty');
 				} else {
-					
+
 				}
 				successfulLoad.apply($this);
 			} else {
@@ -386,10 +386,10 @@ var SSFrontendEditor = {};
 					var pagePath = elemParams[0];
 					var pageId = elemParams[1];
 					var pageElement = elemParams[2];
-					
+
 					// retrieve any content we're already saving for this page
 					var pageArgs = postArgs[pagePath];
-					
+
 					// okay, not saving anything else for this item at the moment
 					if (pageArgs == null) {
 						pageArgs = {};
@@ -413,7 +413,7 @@ var SSFrontendEditor = {};
 						alert('ERROR: ' + response.message);
 					}
 				});
-			} else { 
+			} else {
 				$this.message("Failed to save");
 			}
 		},
@@ -458,7 +458,7 @@ var SSFrontendEditor = {};
 				$this.message("Failed to save");
 			}
 		},
-		
+
 		/**
 		 * Display a message for the user
 		 */
@@ -486,7 +486,7 @@ var SSFrontendEditor = {};
 			buttonList.unshift('sspublish');
 			buttonList.unshift('sssave');
 		},
-		
+
 		load: function (editors) {
 			SSFrontendEditor.ssEditorSaveButton = nicEditorButton.extend({
 				mouseClick : function() {
@@ -506,7 +506,7 @@ var SSFrontendEditor = {};
 				}
 			});
 
-			
+
 			var ssSaveOptions = {
 				buttons : {
 					'sssave' : {name : __('Save this content'), type : 'SSFrontendEditor.ssEditorSaveButton'},

@@ -22,7 +22,7 @@ OF SUCH DAMAGE.
 */
 
 /**
- * A set of utility functions 
+ * A set of utility functions
  */
 class FEUtils {
 	public function __construct() {}
